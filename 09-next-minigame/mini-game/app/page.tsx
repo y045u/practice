@@ -1,4 +1,8 @@
+"use client";
+
+import { Button } from "@/components/ui/button";
 import Image from "next/image";
+import { useState } from "react";
 
 type Monster = {
   id: number;
@@ -36,6 +40,7 @@ export default function Home() {
 }
 
 function Monster({ monsterData }: { monsterData: Monster }) {
+  const [hp, setHp] = useState(monsterData.hp);
   return (
     <div key={monsterData.id} className="border-4 p-4 shadow-sm">
       <Image
@@ -46,9 +51,18 @@ function Monster({ monsterData }: { monsterData: Monster }) {
       />
       <h2>{monsterData.name}</h2>
       <p>HP: {monsterData.hp}</p>
+      <p>HP: {hp}</p>
       <div className="h-3 rounded-full overflow-hidden border">
         <div className="bg-lime-500 size-full"></div>
       </div>
+
+      <Button
+        onClick={() => {
+          setHp((oldHp) => oldHp - 10);
+        }}
+      >
+        攻撃
+      </Button>
     </div>
   );
 }
