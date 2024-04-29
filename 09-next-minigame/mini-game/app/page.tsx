@@ -50,7 +50,6 @@ function Monster({ monsterData }: { monsterData: Monster }) {
         alt={`monster${monsterData.id}`}
       />
       <h2>{monsterData.name}</h2>
-      <p>HP: {monsterData.hp}</p>
       <p>HP: {hp}</p>
       <div className="h-3 rounded-full overflow-hidden border">
         <div className="bg-lime-500 size-full"></div>
