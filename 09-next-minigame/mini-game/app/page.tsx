@@ -57,7 +57,7 @@ function Monster({ monsterData }: { monsterData: Monster }) {
 
       <Button
         onClick={() => {
-          setHp((oldHp) => oldHp - 10);
+          setHp((oldHp) => Math.max(oldHp - 10, 0));
         }}
       >
         攻撃
